@@ -18,11 +18,6 @@ function computerChoice(){
 
 // Function for player choice
 function playerChoice(){
-    console.log("Please select an option:")
-    console.log("1: Rock")
-    console.log("2: Paper")
-    console.log("3: Scissors")
-
     let playerChoice = prompt("Rock (1), Paper (2), Scissors(3)?", "Enter a number option!");
     
 	switch(playerChoice){
@@ -52,9 +47,11 @@ function turn(playerTurn, computerTurn){
 			console.log("DRAW");
 		}
 		else if(computerTurn === "Paper"){
+			incrementComputer();
 			console.log("COMPUTER WINS");
 		}
 		else if(computerTurn === "Scissors"){
+			incrementPlayer();
 			console.log("PLAYER WINS");
 		}
 		
@@ -63,12 +60,14 @@ function turn(playerTurn, computerTurn){
 	else if(playerTurn === "Paper"){
 		
 		if(computerTurn === "Rock"){
+			incrementPlayer();
 			console.log("PLAYER WINS");
 		}
 		else if(computerTurn === "Paper"){
 			console.log("DRAW");
 		}
 		else if(computerTurn === "Scissors"){
+			incrementComputer();
 			console.log("COMPUTER WINS");
 		}
 		
@@ -77,9 +76,11 @@ function turn(playerTurn, computerTurn){
 	else if(playerTurn === "Scissors"){
 		
 		if(computerTurn === "Rock"){
+			incrementComputer();
 			console.log("COMPUTER WINS");
 		}
 		else if(computerTurn === "Paper"){
+			incrementPlayer();
 			console.log("PLAYER WINS");
 		}
 		else if(computerTurn === "Scissors"){
@@ -96,15 +97,38 @@ function turn(playerTurn, computerTurn){
 function incrementPlayer(){playerWins++}
 function incrementComputer(){computerWins++}
 
+function decideWinner(){
 
-for(i = 0; i <= 2; i++){
+	if(playerWins > computerWins){
+		console.log("Player wins!");
+		return playerWins;
+	}
+	else if(computerWins > playerWins){
+		console.log("Computer Wins!");
+		return computerWins;
+	}
+	else{
+		console.log("Draw")
+	}
+}
+
+// This is game loop
+for(i = 0; i <= 5; i++){
 	let playerTurn = playerChoice();
 	let computerTurn = computerChoice();
 	console.log("Player: " + playerTurn);
 	console.log("Computer: " + computerTurn);
 	turn(playerTurn,computerTurn);
-	incrementPlayer();
 };
 
-console.log(playerWins);
+
+console.log("------------------------------------------------------")
+console.log("Results:");
+console.log("Player: " + playerWins);
+console.log("Computer: " + computerWins);
+decideWinner();
+console.log("------------------------------------------------------")
+
+
+
 
