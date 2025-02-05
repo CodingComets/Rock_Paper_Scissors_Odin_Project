@@ -23,7 +23,7 @@ function playerChoice(){
     console.log("2: Paper")
     console.log("3: Scissors")
 
-    let playerChoice = prompt("Rock, Paper, Scissors?", "Default Value");
+    let playerChoice = prompt("Rock (1), Paper (2), Scissors(3)?", "Enter a number option!");
     
 	switch(playerChoice){
 		case "1":
@@ -44,7 +44,57 @@ function playerChoice(){
 }
 
 let playerTurn = playerChoice();
-let computerTurn = computerChoice()
+let computerTurn = computerChoice();
 
-console.log(playerTurn);
-console.log(computerTurn);
+function turn(playerTurn, computerTurn){
+	
+	if(playerTurn === "Rock"){
+		
+		if(computerTurn === "Rock"){
+			console.log("DRAW");
+		}
+		else if(computerTurn === "Paper"){
+			console.log("COMPUTER WINS");
+		}
+		else if(computerTurn === "Scissors"){
+			console.log("PLAYER WINS");
+		}
+		
+	}
+	
+	else if(playerTurn === "Paper"){
+		
+		if(computerTurn === "Rock"){
+			console.log("PLAYER WINS");
+		}
+		else if(computerTurn === "Paper"){
+			console.log("DRAW");
+		}
+		else if(computerTurn === "Scissors"){
+			console.log("COMPUTER WINS");
+		}
+		
+	}
+	
+	else if(playerTurn === "Scissors"){
+		
+		if(computerTurn === "Rock"){
+			console.log("COMPUTER WINS");
+		}
+		else if(computerTurn === "Paper"){
+			console.log("PLAYER WINS");
+		}
+		else if(computerTurn === "Scissors"){
+			console.log("DRAW");
+		}
+		
+	}
+	
+	else{
+		console.log("Not a valid option");
+	}
+}
+
+console.log("Player: " + playerTurn);
+console.log("Computer: " + computerTurn);
+turn(playerTurn,computerTurn);
