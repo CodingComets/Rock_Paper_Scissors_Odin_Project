@@ -1,6 +1,6 @@
-console.log('Happy developing ✨')
-console.log('Happy developing ✨')
-console.log('Happy developing ✨')
+
+let playerWins = 0;
+let computerWins = 0;
 
 // Function for computer choice
 function computerChoice(){
@@ -43,9 +43,7 @@ function playerChoice(){
 	}
 }
 
-let playerTurn = playerChoice();
-let computerTurn = computerChoice();
-
+// Function to handle game single round
 function turn(playerTurn, computerTurn){
 	
 	if(playerTurn === "Rock"){
@@ -91,10 +89,22 @@ function turn(playerTurn, computerTurn){
 	}
 	
 	else{
-		console.log("Not a valid option");
+		console.log("Not a valid optiont");
 	}
 }
 
-console.log("Player: " + playerTurn);
-console.log("Computer: " + computerTurn);
-turn(playerTurn,computerTurn);
+function incrementPlayer(){playerWins++}
+function incrementComputer(){computerWins++}
+
+
+for(i = 0; i <= 2; i++){
+	let playerTurn = playerChoice();
+	let computerTurn = computerChoice();
+	console.log("Player: " + playerTurn);
+	console.log("Computer: " + computerTurn);
+	turn(playerTurn,computerTurn);
+	incrementPlayer();
+};
+
+console.log(playerWins);
+
