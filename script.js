@@ -16,15 +16,35 @@ function computerChoice(){
     }
 }
 
+// Function for player choice
 function playerChoice(){
     console.log("Please select an option:")
     console.log("1: Rock")
     console.log("2: Paper")
     console.log("3: Scissors")
 
-    let playerChoice = prompt("Message to the user", "Default Value");
-    console.log(playerChoice);
+    let playerChoice = prompt("Rock, Paper, Scissors?", "Default Value");
+    
+	switch(playerChoice){
+		case "1":
+			return "Rock"
+			break;
+		
+		case "2":
+			return "Paper"
+			break;
+			
+		case "3":
+			return "Scissors"
+			break;
+			
+		default:
+			return null;
+	}
 }
 
-console.log(computerChoice());
-playerChoice();
+let playerTurn = playerChoice();
+let computerTurn = computerChoice()
+
+console.log(playerTurn);
+console.log(computerTurn);
