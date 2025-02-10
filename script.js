@@ -38,7 +38,7 @@ function playerChoice(){
 	}
 }
 
-// Function to handle game single round
+// Function to handle single round of game
 function turn(playerTurn, computerTurn){
 	
 	if(playerTurn === "Rock"){
@@ -112,7 +112,7 @@ function decideWinner(){
 	}
 }
 
-// This is game loop
+// This is the game loop
 for(i = 0; i <= 5; i++){
 	let playerTurn = playerChoice();
 	let computerTurn = computerChoice();
@@ -121,7 +121,7 @@ for(i = 0; i <= 5; i++){
 	turn(playerTurn,computerTurn);
 };
 
-
+// End result comparisons
 console.log("------------------------------------------------------")
 console.log("Results:");
 console.log("Player: " + playerWins);
